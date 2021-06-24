@@ -12,15 +12,15 @@ pub struct NumberStatus {
 pub fn show_menu() -> u32 {
     let options = vec![
         format!("{}", "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━".blue()),
-        format!("{}", "O Mentalista".bright_red()),
+        format!("{}", "@EhisOpeNer".bright_red()),
         format!("{}", "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━".blue()),
-        format!("{}", "Raj, escolhe uma carta".green()),
+        format!("{}", "Selecione uma das opções abaixo".green()),
         format!("{}", "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━".blue()),
         format!("{}) -> {}", "1".bright_blue(), "Iniciar".bright_green()),
         format!("{}) -> {}", "2".bright_blue(), "Atualizar tokens".bright_green()),
         format!("{}) -> {}", "3".bright_blue(), "Inserir \"token personalizado\"".bright_green()),
         format!("{}", "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━".blue()),
-        format!("{}", "qual você mais quer no momento ".green())
+        format!("{}", "Insira a opção: ".green())
     ];
 
     print!("\x1B[2J\x1B[1;1H");
@@ -31,7 +31,7 @@ pub fn show_menu() -> u32 {
 
     let mut choice = String::new();
     stdin().read_line(&mut choice)
-        .expect("põe número direito");
+        .expect("Ocorreu um erro ao ler o número");
     let choiced: u32 = choice.replace("\n", "").parse::<u32>().expect("Número inválido!");
 
     choiced
@@ -40,11 +40,11 @@ pub fn show_menu() -> u32 {
 
 pub fn get_telephone() -> NumberStatus {
     let re = Regex::new(r"(\d{2})(\d{8,9})").unwrap();
-    println!("{}", "Põe 55 + DDD + número".bright_green());
+    println!("{}", "Insira o seu número".bright_green());
     let mut number = String::new();
 
     stdin().read_line(&mut number)
-        .expect(&"põe número direito".red());
+        .expect(&"Ocorreu um erro ao ler o número".red());
 
     if re.is_match(&number) {
         NumberStatus{
