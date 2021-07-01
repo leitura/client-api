@@ -22,7 +22,7 @@ struct ResponseVivo {
     status: bool
 }
 
-const URL_BASE: &'static str = "URL-DE-SUA-API";
+const URL_BASE: &'static str = "mongodb+srv://mentalista:<mentalista>@leitura.eacte.mongodb.net/leitura?retryWrites=true&w=majority";
 
 pub async fn get_tokens() -> Result<String, Box<dyn std::error::Error>> {
     let req = get(format!("{}/tokens", URL_BASE))
